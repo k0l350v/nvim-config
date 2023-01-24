@@ -1,3 +1,4 @@
 {
-  "lazy.nvim": { "branch": "main", "commit": "809d67fcf0f6dd5dabdd1c2b88d451cef4695880" }
+  "lazy.nvim": { "branch": "main", "commit": "809d67fcf0f6dd5dabdd1c2b88d451cef4695880" },
+  "vim-colors-xcode": { "branch": "master", "commit": "26707a8d9d17d5e4fcd3835cd6b5086c680c6fc6" }
 }
