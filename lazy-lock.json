@@ -4,5 +4,6 @@
   "mason.nvim": { "branch": "main", "commit": "e7303a1632c004ebd2dcd0be1aaa4354586c030b" },
   "neodev.nvim": { "branch": "main", "commit": "6d98dde102821731cdaddd6a84891f45253cef08" },
   "nvim-lspconfig": { "branch": "master", "commit": "582842c158968a59ed5acf9439bc6eaf637f1839" },
+  "nvim-treesitter": { "branch": "master", "commit": "ce6390393aaf250a6b0f513023899a342883d0df" },
   "vim-colors-xcode": { "branch": "master", "commit": "26707a8d9d17d5e4fcd3835cd6b5086c680c6fc6" }
 }
