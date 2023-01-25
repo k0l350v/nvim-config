@@ -1,4 +1,8 @@
 {
-  "lazy.nvim": { "branch": "main", "commit": "809d67fcf0f6dd5dabdd1c2b88d451cef4695880" },
+  "lazy.nvim": { "branch": "main", "commit": "b64ebb71d4e573a34b0b83801eee60cc6d86a06e" },
+  "mason-lspconfig.nvim": { "branch": "main", "commit": "c29f9a9f9b01528ca6a44cd14814f5af20778f7a" },
+  "mason.nvim": { "branch": "main", "commit": "e7303a1632c004ebd2dcd0be1aaa4354586c030b" },
+  "neodev.nvim": { "branch": "main", "commit": "6d98dde102821731cdaddd6a84891f45253cef08" },
+  "nvim-lspconfig": { "branch": "master", "commit": "582842c158968a59ed5acf9439bc6eaf637f1839" },
   "vim-colors-xcode": { "branch": "master", "commit": "26707a8d9d17d5e4fcd3835cd6b5086c680c6fc6" }
 }
