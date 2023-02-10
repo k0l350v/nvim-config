@@ -1,3 +1,4 @@
+vim.g.mapleader = ' '
 local options = require('options')
 options.load_defaults()
 
