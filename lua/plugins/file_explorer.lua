@@ -6,6 +6,15 @@ local M = {
 		'nvim-lua/plenary.nvim'
 	},
 	cmd = 'Neotree',
+	keys = {
+		{
+			'<leader>fe',
+			function()
+				require('neo-tree.command').execute({ toggle = true, dir = vim.loop.cwd() })
+			end,
+			desc = 'Toggle File Explorer (cwd)',
+		}
+	},
 	init = function()
 		vim.g.neo_tree_remove_legacy_commands = 1
 		if vim.fn.argc() == 1 then
