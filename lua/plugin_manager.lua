@@ -7,7 +7,10 @@ local plugin_manager_options = {
 		{ import = 'plugins' },
 	},
 	defaults = { lazy = true },
-	checker = { enabled = true }, -- automatically check for plugin updates
+	checker = {
+		enabled = true, -- automatically check for plugin updates
+		notify = false,
+	},
 	reset_packpath = true,
 	performance = {
 		rtp = {
