@@ -10,7 +10,7 @@ local M = {
 }
 
 local ensure_installed_servers = {
-	'sumneko_lua',
+	'lua_ls',
 	'clangd',
 }
 
