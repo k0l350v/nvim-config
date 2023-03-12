@@ -1,5 +1,6 @@
 local M = {
 	'akinsho/bufferline.nvim',
+	dependencies = { 'catppuccin' },
 	event = 'VeryLazy',
 	opts = {
 		options = {
@@ -16,5 +17,13 @@ local M = {
 		}
 	}
 }
+
+function M.config(_, opts)
+	if vim.g.colors_name == 'catppuccin' then
+		opts.highlights = require('catppuccin.groups.integrations.bufferline').get()
+	end
+
+	require('bufferline').setup(opts)
+end
 
 return M
