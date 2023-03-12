@@ -1,10 +1,19 @@
 local M = {
-	'arzg/vim-colors-xcode',
+	'catppuccin/nvim',
+	name = 'catppuccin',
 	lazy = false,
+	opts = {
+		flavour = 'mocha',
+		transparent_background = true,
+		term_colors = true,
+	},
 }
 
-function M.config()
-	pcall(vim.cmd, [[colorscheme xcodedarkhc]])
+function M.config(_, opts)
+	require('catppuccin').setup(opts)
+
+	vim.cmd.colorscheme 'catppuccin'
 end
+
 
 return M
