@@ -17,7 +17,8 @@ local M = {
 		{ '<leader>fR', '<cmd>Telescope oldfiles<cr>', desc = 'Find recent files' },
 		{ '<leader>ff', '<cmd>Telescope find_files hidden=true<cr>', desc = 'Find files' },
 		{ '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find buffers' },
-		{ '<leader>fw', 'Telescope grep_string hidden=true', desc = 'Find word from cursor' },
+		{ '<leader>fw', '<cmd>Telescope grep_string hidden=true<cr>', desc = 'Find word from cursor' },
+
 		{ '<leader>:', '<cmd>Telescope command_history<cr>', desc = 'Find in command history' },
 		{ '<leader>/', '<cmd>Telescope live_grep hidden=true<cr>', desc = 'Find string (Grep)' },
 	},
