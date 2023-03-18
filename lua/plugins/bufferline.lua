@@ -1,11 +1,14 @@
 local M = {
 	'akinsho/bufferline.nvim',
-	dependencies = { 'catppuccin' },
+	dependencies = {
+		'catppuccin',
+		{ 'tiagovla/scope.nvim', opts = {} }
+	},
 	event = 'VeryLazy',
 	opts = {
 		options = {
 			diagnostics = 'nvim_lsp',
-			always_show_bufferline = false,
+			always_show_bufferline = true,
 			close_icon = '',
 			show_buffer_close_icons = false,
 			show_close_icons = false,
