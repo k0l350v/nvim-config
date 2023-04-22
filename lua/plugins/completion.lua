@@ -30,7 +30,7 @@ local M = {
 					else
 						fallback()
 					end
-				end, { "i", "s" }),
+				end, { 'i', 's' }),
 				['<C-p>'] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
@@ -39,7 +39,7 @@ local M = {
 					else
 						fallback()
 					end
-				end, { "i", "s" }),
+				end, { 'i', 's' }),
 			},
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
