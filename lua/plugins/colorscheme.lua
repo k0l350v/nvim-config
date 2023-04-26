@@ -9,10 +9,10 @@ local M = {
 		custom_highlights = function (colors)
 			local utils = require('catppuccin.utils.colors')
 			return {
-				DiffViewDelete = { bg = utils.darken(colors.red, 0.4, colors.base) },
-				DiffViewAdd = { bg = utils.darken(colors.green, 0.4, colors.base) },
-				DiffViewTextDelete = { bg = utils.darken(colors.red, 0.6, colors.base) },
-				DiffViewTextAdd = { bg = utils.darken(colors.green, 0.6, colors.base) },
+				DiffViewDelete = { bg = utils.darken(colors.red, 0.3, colors.base) },
+				DiffViewAdd = { bg = utils.darken(colors.green, 0.3, colors.base) },
+				DiffViewTextDelete = { bg = utils.darken(colors.red, 0.4, colors.base) },
+				DiffViewTextAdd = { bg = utils.darken(colors.green, 0.4, colors.base) },
 			}
 		end
 	},
