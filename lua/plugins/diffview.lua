@@ -3,9 +3,11 @@ local M = {
 	dependencies = {
 		{ 'catppuccin' },
 	},
-	cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewToggleFiles', 'DiffviewFocusFiles' },
+	cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
 	keys = {
-		{ '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'DiffView' }
+		{ '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Show changes' },
+		{ '<leader>gl', '<cmd>DiffviewFileHistory %<cr>', desc = 'Shows the commit logs for file' },
+		{ '<leader>gL', '<cmd>DiffviewFileHistory<cr>', desc = 'Shows the commit logs' },
 	},
 	opts = {
 		hooks = {
