@@ -20,9 +20,8 @@ local M = {
 				end,
 			},
 			mapping = {
-				['<C-y>'] = cmp.mapping.confirm { select = false },
-				['<C-e>'] = cmp.mapping.abort(),
-				['<C-n>'] = cmp.mapping(function(fallback)
+				['<CR>'] = cmp.mapping.confirm { select = false },
+				['<Tab>'] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
 					elseif luasnip.expand_or_jumpable() then
@@ -31,7 +30,7 @@ local M = {
 						fallback()
 					end
 				end, { 'i', 's' }),
-				['<C-p>'] = cmp.mapping(function(fallback)
+				['<S-Tab>'] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
 					elseif luasnip.jumpable(-1) then
