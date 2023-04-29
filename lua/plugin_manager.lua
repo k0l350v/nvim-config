@@ -20,7 +20,6 @@ local plugin_manager_options = {
 				'matchit',
 				'matchparen',
 				'netrwPlugin',
-				'rplugin',
 				'tarPlugin',
 				'tohtml',
 				'tutor',
