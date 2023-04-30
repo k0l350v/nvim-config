@@ -17,10 +17,28 @@ function M.load_keymaps()
 	map('v', '<A-j>', ':m ">+1<cr>gv=gv', { desc = 'Move down' })
 	map('v', '<A-k>', ':m "<-2<cr>gv=gv', { desc = 'Move up' })
 
+	map('v', '<Tab>', '>gv', { desc = 'Indent line' })
+	map('v', '<S-Tab>', '<gv', { desc = 'Unindent' })
+
 	map({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>', { desc = 'Escape and clear hlsearch' })
 
 	map({ 'i', 'v', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save file' })
 	map('n', '<C-q>', '<cmd>qa<cr>', { desc = 'Quit all' })
+
+	map({ 'i', 'v', 'n', 't' }, '<A-Up>', '<cmd>resize +2<cr>', { desc = 'Increase window height' })
+	map({ 'i', 'v', 'n', 't' }, '<A-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease window height' })
+	map({ 'i', 'v', 'n', 't' }, '<A-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease window width' })
+	map({ 'i', 'v', 'n', 't' }, '<A-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })
+
+	map({ 'n', 'i' }, '<Up>', '<nop>')
+	map({ 'n', 'i' }, '<Down>', '<nop>')
+	map({ 'n', 'i' }, '<Left>', '<nop>')
+	map({ 'n', 'i' }, '<Right>', '<nop>')
+
+	map('t', '<C-w>h', '<cmd>wincmd h<cr>', { desc = 'Go to the left window' })
+	map('t', '<C-w>j', '<cmd>wincmd j<cr>', { desc = 'Go to the lower window' })
+	map('t', '<C-w>k', '<cmd>wincmd k<cr>', { desc = 'Go to the up window' })
+	map('t', '<C-w>l', '<cmd>wincmd l<cr>', { desc = 'Go to the right window' })
 end
 
 return M
