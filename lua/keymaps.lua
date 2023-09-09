@@ -34,11 +34,6 @@ function M.load_keymaps()
 	map({ 'n', 'i' }, '<Down>', '<nop>')
 	map({ 'n', 'i' }, '<Left>', '<nop>')
 	map({ 'n', 'i' }, '<Right>', '<nop>')
-
-	map('t', '<C-w>h', '<cmd>wincmd h<cr>', { desc = 'Go to the left window' })
-	map('t', '<C-w>j', '<cmd>wincmd j<cr>', { desc = 'Go to the lower window' })
-	map('t', '<C-w>k', '<cmd>wincmd k<cr>', { desc = 'Go to the up window' })
-	map('t', '<C-w>l', '<cmd>wincmd l<cr>', { desc = 'Go to the right window' })
 end
 
 return M
