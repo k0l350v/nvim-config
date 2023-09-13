@@ -13,6 +13,7 @@ local M = {
 	opts = function()
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
+		local defaults = require('cmp.config.default')()
 		return {
 			snippet = {
 				expand = function(args)
@@ -53,7 +54,8 @@ local M = {
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
-			}
+			},
+			sorting = defaults.sorting,
 		}
 	end
 }

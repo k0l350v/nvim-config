@@ -17,7 +17,6 @@ local M = {
 
 local ensure_installed_servers = {
 	'lua_ls',
-	'clangd',
 }
 
 local function get_server_capabilities()
@@ -29,18 +28,27 @@ local function get_server_capabilities()
 	return vim.lsp.protocol.make_client_capabilities()
 end
 
-local function server_setup_handler(server)
-	local has_custom_opts, custom_opts = pcall(require, 'plugins/lsp/configs/' .. server)
-	local server_opts = has_custom_opts and custom_opts or {}
-	server_opts.capabilities = get_server_capabilities()
+function M.config(_, opts)
+	local function setup(server)
+		local server_opts = vim.tbl_deep_extend('force', {
+			capabilities = get_server_capabilities()
+		}, opts.servers[server] or {})
 
-	require('lspconfig')[server].setup(server_opts)
-end
+		if opts.setup[server] then
+			if opts.setup[server](server, server_opts) then
+				return
+			end
+		end
+		require('lspconfig')[server].setup(server_opts)
+	end
 
-function M.config()
+	for server, _ in pairs(opts.servers) do
+		ensure_installed_servers[#ensure_installed_servers+1] = server
+	end
+
 	local mlsp = require('mason-lspconfig')
 	mlsp.setup({ ensure_installed = ensure_installed_servers })
-	mlsp.setup_handlers({ server_setup_handler })
+	mlsp.setup_handlers({ setup })
 end
 
 return M

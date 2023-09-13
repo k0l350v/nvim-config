@@ -8,10 +8,8 @@ local M = {
 		indent = { enable = true },
 		ensure_installed = {
 			'bash',
-			'c',
 			'c_sharp',
 			'cmake',
-			'cpp',
 			'diff',
 			'fish',
 			'gitignore',
