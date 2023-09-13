@@ -3,12 +3,6 @@ local M = {
 	event = 'BufReadPre',
 	dependencies = {
 		{ 'folke/neodev.nvim', opts = { experimental = { pathStrict = true } } },
-		{
-			'j-hui/fidget.nvim',
-			tag = 'legacy',
-			event = 'LspAttach',
-			opts = { window = { blend = 0 } }
-		},
 
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
