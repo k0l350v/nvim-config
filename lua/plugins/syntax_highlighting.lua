@@ -9,7 +9,6 @@ local M = {
 		ensure_installed = {
 			'bash',
 			'c_sharp',
-			'cmake',
 			'diff',
 			'fish',
 			'gitignore',
