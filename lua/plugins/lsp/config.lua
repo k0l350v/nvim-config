@@ -15,10 +15,6 @@ local M = {
 	}
 }
 
-local ensure_installed_servers = {
-	'lua_ls',
-}
-
 local function get_server_capabilities()
 	local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 	if status_ok then
@@ -42,6 +38,7 @@ function M.config(_, opts)
 		require('lspconfig')[server].setup(server_opts)
 	end
 
+	local ensure_installed_servers = {}
 	for server, _ in pairs(opts.servers) do
 		ensure_installed_servers[#ensure_installed_servers+1] = server
 	end

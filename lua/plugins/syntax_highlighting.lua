@@ -25,7 +25,6 @@ local M = {
 			'kotlin',
 			'latex',
 			'llvm',
-			'lua',
 			'markdown',
 			'markdown_inline',
 			'ninja',
