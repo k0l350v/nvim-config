@@ -28,7 +28,6 @@ local M = {
 			'markdown_inline',
 			'ninja',
 			'pascal',
-			'python',
 			'query',
 			'regex',
 			'ruby',
