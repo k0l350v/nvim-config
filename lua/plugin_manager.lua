@@ -6,8 +6,9 @@ local plugin_manager_options = {
 	spec = {
 		{ import = 'plugins' },
 
-		{ import = 'plugins.lsp' },
-		{ import = 'plugins.lang' },
+		{ import = 'plugins.coding' },
+		{ import = 'plugins.coding.lsp' },
+		{ import = 'plugins.coding.lang' },
 
 		{ import = 'plugins.editor' },
 	},
