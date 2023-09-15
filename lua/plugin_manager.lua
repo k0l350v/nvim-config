@@ -8,6 +8,8 @@ local plugin_manager_options = {
 
 		{ import = 'plugins.lsp' },
 		{ import = 'plugins.lang' },
+
+		{ import = 'plugins.editor' },
 	},
 	defaults = { lazy = true },
 	checker = {
