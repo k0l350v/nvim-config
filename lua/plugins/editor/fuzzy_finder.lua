@@ -32,12 +32,6 @@ local M = {
 			selection_caret = ' ',
 			mappings = {
 				i = {
-					['<Tab>'] = function(...)
-						return require('telescope.actions').move_selection_next(...)
-					end,
-					['<S-Tab>'] = function(...)
-						return require('telescope.actions').move_selection_previous(...)
-					end,
 					['<C-q>'] = function(...)
 						return require('telescope.actions').close(...)
 					end,

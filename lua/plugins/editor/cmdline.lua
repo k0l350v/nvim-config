@@ -12,8 +12,8 @@ function M.config()
 
 	wilder.setup({
 		modes = { ':', '/', '?' },
-		next_key = '<Tab>',
-		previous_key = '<S-Tab>',
+		next_key = '<C-n>',
+		previous_key = '<C-p>',
 	})
 
 	wilder.set_option('pipeline', wilder.branch(
