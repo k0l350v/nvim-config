@@ -11,6 +11,7 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
+  "dressing.nvim": { "branch": "master", "commit": "94b0d24483d56f3777ee0c8dc51675f21709318c" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
   "fzy-lua-native": { "branch": "master", "commit": "820f745b7c442176bcc243e8f38ef4b985febfaf" },
