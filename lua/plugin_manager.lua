@@ -16,6 +16,10 @@ local plugin_manager_options = {
 		enabled = true, -- automatically check for plugin updates
 		notify = false,
 	},
+	change_detection = {
+		enabled = true,
+		notify = false,
+	},
 	reset_packpath = true,
 	performance = {
 		rtp = {
