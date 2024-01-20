@@ -3,7 +3,7 @@ local M = {
 		'nvim-neo-tree/neo-tree.nvim',
 		dependencies = {
 			'nvim-tree/nvim-web-devicons',
-			'MunifTanjim/nui.nvim',
+			'nui.nvim',
 			'nvim-lua/plenary.nvim'
 		},
 		cmd = 'Neotree',
