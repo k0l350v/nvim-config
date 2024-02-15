@@ -4,6 +4,7 @@ local M = {
 		'stevearc/overseer.nvim',
 		opts = {
 			task_list = {
+				direction = 'bottom',
 				max_width = 0.4,
 				max_height = 0.6,
 			}
@@ -35,7 +36,6 @@ local M = {
 							function()
 								require('overseer').open({
 									enter = false,
-									direction = 'bottom'
 								})
 							end
 						)
@@ -60,7 +60,6 @@ local M = {
 							function()
 								require('overseer').open({
 									enter = false,
-									direction = 'bottom'
 								})
 							end
 						)
