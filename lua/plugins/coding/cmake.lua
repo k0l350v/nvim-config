@@ -25,44 +25,16 @@ local M = {
 				overseer = {
 					new_task_opts = {
 						strategy = {
-							'toggleterm',
-							direction = 'horizontal',
+							'terminal',
 							open_on_start = false,
 						},
 					},
 					on_new_task = function (task)
-						task:subscribe(
-							'on_start',
-							function()
-								require('overseer').open({
-									enter = false,
-								})
-							end
-						)
-					end
-				},
-			},
-		},
-		cmake_runner = {
-			name = 'overseer',
-			default_opts = {
-				overseer = {
-					new_task_opts = {
-						strategy = {
-							'toggleterm',
-							direction = 'horizontal',
-							open_on_start = false,
-						},
-					},
-					on_new_task = function (task)
-						task:subscribe(
-							'on_start',
-							function()
-								require('overseer').open({
-									enter = false,
-								})
-							end
-						)
+						task:subscribe('on_start', function()
+							require('overseer').open({
+								enter = false,
+							})
+						end)
 					end
 				},
 			},
