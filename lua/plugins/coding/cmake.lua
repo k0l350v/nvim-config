@@ -1,5 +1,6 @@
 local M = {
 	'Civitasv/cmake-tools.nvim',
+	commit = 'aba5b805082b3c1027ac4f5051b84c61989c34c8',
 	dependencies = {
 		'stevearc/overseer.nvim',
 		opts = {
