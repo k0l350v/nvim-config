@@ -23,7 +23,7 @@ local M = {
 			'nvim-notify',
 		},
 		opts = {
-			lsp = { progress = { enabled = false }},
+			lsp = { progress = { enabled = true }},
 			views = {
 				cmdline_popup = {
 					position = {
@@ -42,6 +42,14 @@ local M = {
 				command_palette = true,
 			}
 		},
+	},
+	{
+		'catppuccin',
+		opts = {
+			integrations = {
+				noice = true,
+			}
+		}
 	}
 }
 
