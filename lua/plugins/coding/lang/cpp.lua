@@ -8,6 +8,24 @@ local M = {
 		end,
 	},
 	{
+		'williamboman/mason.nvim',
+		opts = function(_, opts)
+			opts.ensure_installed = opts.ensure_installed or {}
+			vim.list_extend(opts.ensure_installed, {
+				'clangd',
+				'clang-format',
+			})
+		end,
+	},
+	{
+		'conform.nvim',
+		opts = {
+			formatters_by_ft = {
+				cpp = { 'clang-format' },
+			},
+		},
+	},
+	{
 		'p00f/clangd_extensions.nvim',
 		config = function() end,
 		opts = {
@@ -34,7 +52,6 @@ local M = {
 						'--completion-style=detailed',
 						'--cross-file-rename',
 						'--function-arg-placeholders',
-						'--fallback-style=llvm',
 					},
 					init_options = {
 						clangdFileStatus = true,
