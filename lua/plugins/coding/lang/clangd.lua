@@ -8,22 +8,43 @@ local M = {
 		end,
 	},
 	{
+		'p00f/clangd_extensions.nvim',
+		config = function() end,
+		opts = {
+			inlay_hints = {
+				inline = false,
+			},
+		},
+	},
+	{
 		'neovim/nvim-lspconfig',
 		dependencies = { 'p00f/clangd_extensions.nvim' },
+		keys = {
+			{ '<leader>cR', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Switch Source/Header (C/C++)' },
+		},
 		opts = {
 			servers = {
 				clangd = {
-					-- TODO
+					cmd = {
+						'clangd',
+						'--background-index',
+						'--suggest-missing-includes',
+						'--clang-tidy',
+						'--header-insertion=iwyu',
+						'--completion-style=detailed',
+						'--cross-file-rename',
+						'--function-arg-placeholders',
+						'--fallback-style=llvm',
+					},
+					init_options = {
+						clangdFileStatus = true,
+					},
 				},
 			},
 			setup = {
 				clangd = function(_, opts)
-					local clangd_ext_opts = {
-						inlay_hints = {
-							inline = false,
-						},
-					}
-
+					local plugin = require('lazy.core.config').plugins['clangd_extensions.nvim']
+					local clangd_ext_opts = require('lazy.core.plugin').values(plugin, 'opts', false)
 					require('clangd_extensions').setup(vim.tbl_deep_extend('force', clangd_ext_opts, { server = opts }))
 					return false
 				end,
@@ -32,6 +53,7 @@ local M = {
 	},
 	{
 		'nvim-cmp',
+		dependencies = { 'p00f/clangd_extensions.nvim' },
 		opts = function(_, opts)
 			table.insert(opts.sorting.comparators, 1, require('clangd_extensions.cmp_scores'))
 		end,
