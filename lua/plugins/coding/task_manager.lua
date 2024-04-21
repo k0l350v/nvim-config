@@ -1,8 +1,8 @@
 local M = {
 	'stevearc/overseer.nvim',
 	keys = {
-		{ '<leader>ot', '<cmd>OverseerToggle<cr>', desc = 'Overseer Toggle' },
-		{ '<leader>oq', '<cmd>OverseerQuickAction<cr>', desc = 'Overseer Quick Action' },
+		{ '<leader>tt', '<cmd>OverseerToggle<cr>', desc = 'Toggle Task Window' },
+		{ '<leader>tq', '<cmd>OverseerQuickAction<cr>', desc = 'Last Task Quick Action' },
 	},
 	opts = {
 		task_list = {
