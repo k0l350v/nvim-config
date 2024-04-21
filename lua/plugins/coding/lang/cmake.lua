@@ -50,8 +50,35 @@ local M = {
 		},
 		cmd = {
 			'CMakeGenerate',
+			'CMakeClean',
 			'CMakeBuild',
+			'CMakeInstall',
 			'CMakeRun',
+			'CMakeRunTest',
+			'CMakeDebug',
+
+			'CMakeQuickBuild',
+			'CMakeQuickRun',
+			'CMakeQuickDebug',
+
+			'CMakeSelectBuildType',
+			'CMakeSelectKit',
+			'CMakeSelectConfigurePreset',
+			'CMakeSelectBuildPreset',
+			'CMakeSelectBuildTarget',
+			'CMakeSelectLaunchTarget',
+		},
+		keys = {
+			{ '<leader>cg', '<cmd>CMakeGenerate<cr>', desc = 'Cmake Generate' },
+			{ '<leader>cb', '<cmd>CMakeBuild<cr>', desc = 'Cmake Build' },
+			{ '<leader>cr', '<cmd>CMakeRun<cr>', desc = 'Cmake Run' },
+			{ '<leader>cd', '<cmd>CMakeDebug<cr>', desc = 'Cmake Debug' },
+
+			{ '<leader>csc', '<cmd>CMakeSelectConfigurePreset<cr>', desc = 'Cmake Select Configure Preset' },
+			{ '<leader>csb', '<cmd>CMakeSelectBuildPreset<cr>', desc = 'Cmake Select Build Preset' },
+			{ '<leader>cst', '<cmd>CMakeSelectBuildTarget<cr>', desc = 'Cmake Select Build Target' },
+			{ '<leader>csT', '<cmd>CMakeSelectBuildType<cr>', desc = 'Cmake Select Build Type' },
+			{ '<leader>csl', '<cmd>CMakeSelectLaunchTarget<cr>', desc = 'Cmake Select Launch Target' },
 		},
 		opts = {
 			cmake_regenerate_on_save = false,
