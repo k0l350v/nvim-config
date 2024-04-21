@@ -38,7 +38,7 @@ local default_keys = {
 	{ 'K', vim.lsp.buf.hover, desc = 'Hover' },
 	{ 'gK', vim.lsp.buf.signature_help, desc = 'Signature Help' },
 	{ '<c-k>', vim.lsp.buf.signature_help, mode = 'i', desc = 'Signature Help' },
-	{ '<leader>ca', vim.lsp.buf.code_action, desc = 'Code Action', mode = { 'n', 'v' } },
+	{ 'ga', vim.lsp.buf.code_action, desc = 'Goto Code Action', mode = { 'n', 'v' } },
 }
 
 local function attach_keymaps(keymaps, buffer)
