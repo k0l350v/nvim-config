@@ -48,6 +48,7 @@ local M = {
 		dependencies = {
 			{ 'overseer.nvim' },
 		},
+		ft = { 'cmake', 'cpp', 'c' }, -- TODO: remove after resolve https://github.com/Civitasv/cmake-tools.nvim/issues
 		cmd = {
 			'CMakeGenerate',
 			'CMakeClean',
