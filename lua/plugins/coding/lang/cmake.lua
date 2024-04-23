@@ -74,7 +74,7 @@ local M = {
 			{ '<leader>cr', '<cmd>CMakeRun<cr>', desc = 'Cmake Run' },
 			{ '<leader>cd', '<cmd>CMakeDebug<cr>', desc = 'Cmake Debug' },
 
-			{ '<leader>csc', '<cmd>CMakeSelectConfigurePreset<cr>', desc = 'Cmake Select Configure Preset' },
+			{ '<leader>csg', '<cmd>CMakeSelectConfigurePreset<cr>', desc = 'Cmake Select Configure Preset' },
 			{ '<leader>csb', '<cmd>CMakeSelectBuildPreset<cr>', desc = 'Cmake Select Build Preset' },
 			{ '<leader>cst', '<cmd>CMakeSelectBuildTarget<cr>', desc = 'Cmake Select Build Target' },
 			{ '<leader>csT', '<cmd>CMakeSelectBuildType<cr>', desc = 'Cmake Select Build Type' },
