@@ -132,6 +132,25 @@ local M = {
 					},
 				},
 			},
+			cmake_runner = {
+				name = 'overseer',
+				default_opts = {
+					overseer = {
+						new_task_opts = {
+							strategy = {
+								'jobstart',
+							},
+						},
+						on_new_task = function(task)
+							task:subscribe('on_start', function()
+								require('overseer').open({
+									enter = false,
+								})
+							end)
+						end,
+					},
+				},
+			},
 			cmake_notifications = {
 				runner = { enabled = false },
 				executor = { enabled = false },
