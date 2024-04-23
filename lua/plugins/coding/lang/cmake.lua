@@ -142,6 +142,7 @@ local M = {
 							},
 						},
 						on_new_task = function(task)
+							task.name = 'Cmake Run'
 							task:subscribe('on_start', function()
 								require('overseer').open({
 									enter = false,
