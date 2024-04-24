@@ -36,9 +36,14 @@ local M = {
 		end,
 	},
 	{
+		'theHamsta/nvim-dap-virtual-text',
+		opts = {},
+	},
+	{
 		'mfussenegger/nvim-dap',
 		dependencies = {
 			'nvim-dap-ui',
+			'nvim-dap-virtual-text',
 		},
 		keys = {
 			{
