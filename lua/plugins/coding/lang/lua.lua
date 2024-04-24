@@ -9,6 +9,9 @@ local M = {
 	},
 	{
 		'neovim/nvim-lspconfig',
+		dependencies = {
+			{ 'folke/neodev.nvim', opts = {} },
+		},
 		opts = {
 			servers = {
 				lua_ls = {},

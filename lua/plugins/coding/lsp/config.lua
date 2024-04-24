@@ -2,8 +2,6 @@ local M = {
 	'neovim/nvim-lspconfig',
 	event = 'BufReadPre',
 	dependencies = {
-		{ 'folke/neodev.nvim', opts = { experimental = { pathStrict = true } } },
-
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
 		'telescope.nvim',
