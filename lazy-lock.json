@@ -43,6 +43,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "9b1c2096e0b353ab44bc5fb242306dde50761109" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "a6382f744f584bbf71d0a563af789af7190aabda" },
   "nvim-web-devicons": { "branch": "master", "commit": "beb6367ab8496c9e43f22e0252735fdadae1872d" },
+  "one-small-step-for-vimkind": { "branch": "main", "commit": "93af151b02d2952977fd3db20b07d2a5d23b60f6" },
   "overseer.nvim": { "branch": "master", "commit": "dd701ed0639ef1e10d0ca8dec039719e916c4a7b" },
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
   "scope.nvim": { "branch": "main", "commit": "86a0f5b594b08b2ad65f470ffdee81654942b6ac" },
