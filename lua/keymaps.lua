@@ -29,11 +29,6 @@ function M.load_keymaps()
 	map({ 'i', 'v', 'n', 't' }, '<A-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease window height' })
 	map({ 'i', 'v', 'n', 't' }, '<A-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease window width' })
 	map({ 'i', 'v', 'n', 't' }, '<A-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })
-
-	map({ 'n', 'i' }, '<Up>', '<nop>')
-	map({ 'n', 'i' }, '<Down>', '<nop>')
-	map({ 'n', 'i' }, '<Left>', '<nop>')
-	map({ 'n', 'i' }, '<Right>', '<nop>')
 end
 
 return M
