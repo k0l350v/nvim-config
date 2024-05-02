@@ -37,6 +37,14 @@ local M = {
 				documentation = cmp.config.window.bordered(),
 			},
 			sorting = defaults.sorting,
+			formatting = {
+				fields = { 'kind', 'abbr', 'menu' },
+				format = function(entry, item)
+					item.kind = require('icons').kind[item.kind]
+					item.menu = '(' .. entry.source.name .. ')'
+					return item
+				end,
+			},
 		}
 	end,
 }
