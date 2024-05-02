@@ -44,6 +44,8 @@ local M = {
 		dependencies = {
 			'nvim-dap-ui',
 			'nvim-dap-virtual-text',
+
+			'catppuccin', -- icons hl
 		},
 		keys = {
 			{
@@ -160,11 +162,22 @@ local M = {
 			},
 		},
 		config = function()
-			local sign = vim.fn.sign_define
+			local icons = {
+				Stopped = { '󰁕 ', 'DiagnosticWarn', 'DapStoppedLine' },
+				Breakpoint = { '●', 'DapBreakpoint' }, -- DapBreakpoint from catppuccin
+				BreakpointCondition = { '●', 'DapBreakpointCondition' }, -- DapBreakpointCondition from catppuccin
+				BreakpointRejected = { ' ', 'DiagnosticError' },
+				LogPoint = { '.>', 'DapLogPoint' }, -- DapLogPoint from catppuccin
+			}
 
-			sign('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
-			sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
-			sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = '', numhl = '' })
+			vim.api.nvim_set_hl(0, 'DapStoppedLine', { default = true, link = 'Visual' })
+			for name, sign in pairs(icons) do
+				sign = type(sign) == 'table' and sign or { sign }
+				vim.fn.sign_define(
+					'Dap' .. name,
+					{ text = sign[1], texthl = sign[2] or 'DiagnosticInfo', linehl = sign[3], numhl = sign[3] }
+				)
+			end
 		end,
 	},
 }
