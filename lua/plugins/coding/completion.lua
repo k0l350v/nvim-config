@@ -23,8 +23,10 @@ local M = {
 			}),
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
-				{ name = 'buffer' },
 				{ name = 'path' },
+			},
+			{
+				{ name = 'buffer' },
 			}),
 			experimental = {
 				native_menu = false,
