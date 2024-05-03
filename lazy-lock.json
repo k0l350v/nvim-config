@@ -1,7 +1,6 @@
 {
   "ChatGPT.nvim": { "branch": "main", "commit": "df53728e05129278d6ea26271ec086aa013bed90" },
   "LuaSnip": { "branch": "master", "commit": "b152822e1a4bafb6bdf11a16cc26525cbd95ee00" },
-  "alpha-nvim": { "branch": "main", "commit": "41283fb402713fc8b327e60907f74e46166f4cfd" },
   "bufdelete.nvim": { "branch": "master", "commit": "f6bcea78afb3060b198125256f897040538bcb81" },
   "bufferline.nvim": { "branch": "main", "commit": "73540cb95f8d95aa1af3ed57713c6720c78af915" },
   "catppuccin": { "branch": "main", "commit": "a1439ad7c584efb3d0ce14ccb835967f030450fe" },
@@ -12,6 +11,7 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "conform.nvim": { "branch": "master", "commit": "12b3995537f52ba2810a9857e8ca256881febbda" },
+  "dashboard-nvim": { "branch": "master", "commit": "1c8b82c5b02bb890862538be2061e37ef801a99b" },
   "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
   "dressing.nvim": { "branch": "master", "commit": "5162edb1442a729a885c45455a07e9a89058be2f" },
   "flash.nvim": { "branch": "main", "commit": "fd0d236020058de0268a0b0b2addf571c3333c8d" },
