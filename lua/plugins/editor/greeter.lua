@@ -1,35 +1,62 @@
-local M = {
-	'nvimdev/dashboard-nvim',
-	event = 'VimEnter',
-	opts = function()
-		local opts = {
-			theme = 'doom',
-			config = {
-				center = {
-					{ action = 'ene | startinsert', desc = 'New file', icon = ' ', key = 'e' },
-					{ action = 'qa', desc = 'Quit', icon = ' ', key = 'q' },
-				},
-				footer = function()
-					local stats = require('lazy').stats()
-					local ms = math.floor((stats.startuptime * 100 + 0.5) / 100)
-					return { '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms' }
-				end,
-			},
-		}
+local logo = table.concat({
+	'██╗  ██╗ █████╗ ██╗     ██████╗ ███████╗ █████╗ ██╗   ██╗',
+	'██║ ██╔╝██╔══██╗██║     ╚════██╗██╔════╝██╔══██╗██║   ██║',
+	'█████═╝ ██║  ██║██║      █████╔╝██████╗ ██║  ██║╚██╗ ██╔╝',
+	'██╔═██╗ ██║  ██║██║      ╚═══██╗╚════██╗██║  ██║ ╚████╔╝ ',
+	'██║ ╚██╗╚█████╔╝███████╗██████╔╝██████╔╝╚█████╔╝  ╚██╔╝  ',
+	'╚═╝  ╚═╝ ╚════╝ ╚══════╝╚═════╝ ╚═════╝  ╚════╝    ╚═╝   ',
+}, '\n')
 
-		-- close Lazy and re-open when the dashboard is ready
-		if vim.o.filetype == 'lazy' then
-			vim.cmd.close()
+local M = {
+	{
+		'echasnovski/mini.starter',
+		version = false, -- wait till new 0.7.0 release to put it back on semver
+		event = 'VimEnter',
+		opts = function()
+			local starter = require('mini.starter')
+			local config = {
+				evaluate_single = true,
+				silent = true,
+				header = logo,
+				items = {},
+				content_hooks = {
+					starter.gen_hook.adding_bullet(),
+					starter.gen_hook.aligning('center', 'center'),
+				},
+			}
+			return config
+		end,
+		config = function(_, opts)
+			-- close Lazy and re-open when starter is ready
+			if vim.o.filetype == 'lazy' then
+				vim.cmd.close()
+				vim.api.nvim_create_autocmd('User', {
+					pattern = 'MiniStarterOpened',
+					callback = function()
+						require('lazy').show()
+					end,
+				})
+			end
+
+			local starter = require('mini.starter')
+
+			vim.list_extend(opts.items, starter.sections.builtin_actions())
+
+			starter.setup(opts)
+
 			vim.api.nvim_create_autocmd('User', {
-				pattern = 'DashboardLoaded',
+				pattern = 'LazyVimStarted',
 				callback = function()
-					require('lazy').show()
+					local stats = require('lazy').stats()
+					local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+					starter.config.footer = '⚡ Neovim loaded '
+						.. stats.loaded .. '/' .. stats.count .. ' plugins'
+						.. ' in ' .. ms .. ' ms'
+					pcall(starter.refresh)
 				end,
 			})
-		end
-
-		return opts
-	end,
+		end,
+	},
 }
 
 return M
