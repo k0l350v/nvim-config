@@ -9,6 +9,7 @@ local M = {
 			direction = 'bottom',
 			max_width = 0.4,
 			max_height = 0.6,
+			default_detail = 2,
 		},
 	},
 	config = function(_, opts)
