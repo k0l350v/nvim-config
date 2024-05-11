@@ -9,7 +9,14 @@ local M = {
 			direction = 'bottom',
 			max_width = 0.4,
 			max_height = 0.6,
-			default_detail = 2,
+			default_detail = 1,
+		},
+		component_aliases = {
+			default = {
+				{ 'display_duration', detail_level = 1 },
+				{ 'on_complete_dispose', timeout = 900 },
+				'on_exit_set_status',
+			},
 		},
 	},
 	config = function(_, opts)
