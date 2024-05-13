@@ -56,6 +56,9 @@ local M = {
 					init_options = {
 						clangdFileStatus = true,
 					},
+					capabilities = {
+						offsetEncoding = { 'utf-16' },
+					},
 				},
 			},
 			setup = {
