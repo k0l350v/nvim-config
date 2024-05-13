@@ -22,11 +22,10 @@ local M = {
 				end,
 			}),
 			sources = cmp.config.sources({
-				{ name = 'nvim_lsp' },
-				{ name = 'path' },
-			},
-			{
-				{ name = 'buffer' },
+				{ name = 'nvim_lsp', max_item_count = 5 },
+				{ name = 'path', max_item_count = 5 },
+			}, {
+				{ name = 'buffer', max_item_count = 8 },
 			}),
 			experimental = {
 				native_menu = false,

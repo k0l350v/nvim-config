@@ -34,6 +34,7 @@ local icons = {
 		Unit = '',
 		Value = '',
 		Variable = '',
+		Copilot = '',
 	},
 }
 

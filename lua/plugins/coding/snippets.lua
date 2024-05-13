@@ -41,7 +41,11 @@ local M = {
 					require('luasnip').lsp_expand(args.body)
 				end,
 			}
-			table.insert(opts.sources, { name = 'luasnip' })
+			table.insert(opts.sources, 1, {
+				name = 'luasnip',
+				group_index = 1,
+				max_item_count = 3,
+			})
 		end,
 	},
 	{
