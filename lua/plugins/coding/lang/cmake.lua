@@ -128,6 +128,7 @@ local M = {
 									'on_output_parse',
 									problem_matcher = problem_matcher,
 								},
+								{ 'unique' },
 							})
 						end,
 					},
