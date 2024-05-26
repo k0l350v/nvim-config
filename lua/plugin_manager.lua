@@ -4,11 +4,12 @@ local plugin_manager_dir = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
 local plugin_manager_options = {
 	spec = {
+		{ import = 'plugins.editor' },
+
 		{ import = 'plugins.coding' },
 		{ import = 'plugins.coding.lsp' },
 		{ import = 'plugins.coding.lang' },
 
-		{ import = 'plugins.editor' },
 		{ import = 'plugins.git' },
 	},
 	defaults = { lazy = true },
