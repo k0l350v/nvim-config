@@ -4,7 +4,7 @@ local M = {
 		dependencies = {
 			'nvim-tree/nvim-web-devicons',
 			'nui.nvim',
-			'nvim-lua/plenary.nvim'
+			'nvim-lua/plenary.nvim',
 		},
 		cmd = 'Neotree',
 		keys = {
@@ -14,7 +14,7 @@ local M = {
 					require('neo-tree.command').execute({ toggle = true, dir = vim.loop.cwd() })
 				end,
 				desc = 'Toggle File Explorer window(cwd)',
-			}
+			},
 		},
 		init = function()
 			vim.g.neo_tree_remove_legacy_commands = 1
@@ -25,7 +25,7 @@ local M = {
 				end
 			end
 		end,
-		opts = {}
+		opts = {},
 	},
 	{
 		'echasnovski/mini.files',
@@ -37,7 +37,7 @@ local M = {
 			},
 			optioons = {
 				use_as_default_explorer = false,
-			}
+			},
 		},
 		keys = {
 			{
@@ -46,9 +46,22 @@ local M = {
 					require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
 				end,
 				desc = 'Open File Manager (current file directory)',
-			}
+			},
 		},
-	}
+	},
+	{
+		'folke/edgy.nvim',
+		optional = true,
+		ft = 'neo-tree',
+		opts = function(_, opts)
+			opts.left = vim.list_extend(opts.left or {}, {
+				{
+					title = 'Neo-Tree',
+					ft = 'neo-tree',
+				},
+			})
+		end,
+	},
 }
 
 return M
