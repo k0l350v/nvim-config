@@ -107,7 +107,6 @@ local M = {
 						prompt = 'Generate a commit message for selected code in english.',
 						selection = staged,
 					},
-
 				},
 			}
 		end,
@@ -120,11 +119,6 @@ local M = {
 					vim.opt_local.relativenumber = false
 					vim.opt_local.number = false
 					vim.opt_local.list = false
-
-					local ft = vim.bo.filetype
-					if ft == 'copilot-chat' then
-						vim.bo.filetype = 'markdown'
-					end
 				end,
 			})
 		end,
@@ -174,6 +168,19 @@ local M = {
 				{ '<leader>acm', '<cmd>CopilotChatCommitMessage<cr>', desc = 'CopilotChat - Fix Diagnostic' },
 				{ '<leader>acM', '<cmd>CopilotChatCommitMessageEng<cr>', desc = 'CopilotChat - Fix Diagnostic' },
 			}
+		end,
+	},
+	{
+		'folke/edgy.nvim',
+		optional = true,
+		opts = function(_, opts)
+			opts.right = opts.right or {}
+			table.insert(opts.right, {
+				ft = 'copilot-chat',
+				title = 'CopilotChat',
+				open = 'CopilotChatToggle',
+				size = { width = 0.40 },
+			})
 		end,
 	},
 }
