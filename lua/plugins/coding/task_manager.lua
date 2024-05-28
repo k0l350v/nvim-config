@@ -7,7 +7,7 @@ local M = {
 		},
 		opts = {
 			task_list = {
-				direction = 'left',
+				direction = 'bottom',
 			},
 			component_aliases = {
 				default = {
@@ -32,12 +32,23 @@ local M = {
 		'folke/edgy.nvim',
 		optional = true,
 		opts = function(_, opts)
-			opts.left = opts.left or {}
-			table.insert(opts.left, {
-				title = 'Overseer',
-				ft = 'OverseerList',
-				open = 'OverseerToggle!',
-				size = { width = 0.15 },
+			opts.left = vim.list_extend(opts.left or {}, {
+				{
+					title = 'Overseer',
+					ft = 'OverseerList',
+					open = 'OverseerToggle!',
+					size = { width = 40 },
+				},
+			})
+			opts.bottom = vim.list_extend(opts.bottom or {}, {
+				{
+					title = 'Overseer',
+					ft = '',
+					filter = function(buf)
+						return vim.b[buf].overseer_task ~= nil
+					end,
+					size = { height = 0.30 },
+				},
 			})
 		end,
 	},
