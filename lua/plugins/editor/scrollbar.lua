@@ -6,7 +6,7 @@ local M = {
 		handle = {
 			blend = 65,
 			highlight = 'Cursor',
-			hide_if_all_visible = false
+			hide_if_all_visible = true,
 		},
 		handlers = {
 			cursor = false
