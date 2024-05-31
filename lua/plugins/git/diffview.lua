@@ -16,8 +16,6 @@ local M = {
 				opt.list = false
 				opt.wrap = false
 				opt.relativenumber = false
-
-				opt.fillchars:append('diff:╱')
 			end,
 
 			diff_buf_win_enter = function(_, _, ctx)

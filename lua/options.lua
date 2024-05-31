@@ -37,6 +37,15 @@ local default_options = {
 	ignorecase = true,
 	smartcase = true,
 	mouse = '',
+
+	fillchars = {
+		foldopen = '',
+		foldclose = '',
+		fold = ' ',
+		foldsep = ' ',
+		diff = '╱',
+		eob = ' ',
+	},
 }
 
 function M.load_defaults()
