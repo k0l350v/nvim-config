@@ -5,6 +5,7 @@ local M = {
 		hi = {
 			link = 'Identifier',
 		},
+		no_exec_files = {},
 		symbols = { '─', '│', '╭', '╮', '╰', '╯' },
 		smooth = false,
 	},
