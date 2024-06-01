@@ -11,14 +11,12 @@ local M = {
 		local cmp = require('cmp')
 		local defaults = require('cmp.config.default')()
 		return {
+			completion = {
+				completeopt = 'menu,menuone,noinsert',
+			},
 			mapping = cmp.mapping.preset.insert({
 				['<C-f>'] = cmp.mapping.scroll_docs(4),
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),
-				['<CR>'] = cmp.mapping.confirm({ select = true }),
-				['<C-CR>'] = function(fallback)
-					cmp.abort()
-					fallback()
-				end,
 			}),
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp', max_item_count = 5 },

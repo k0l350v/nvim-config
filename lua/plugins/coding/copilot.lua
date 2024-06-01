@@ -39,7 +39,7 @@ local M = {
 				name = 'copilot',
 				group_index = 1,
 				priority = 100,
-				max_item_count = 3,
+				max_item_count = 1,
 			})
 		end,
 	},

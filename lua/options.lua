@@ -11,7 +11,7 @@ local default_options = {
 	relativenumber = true,
 
 	signcolumn = 'yes',
-	completeopt = { 'menuone', 'noselect' },
+	completeopt = { 'menu', 'menuone', 'noselect' },
 	clipboard = 'unnamedplus',
 	cursorline = true,
 	undofile = true,
