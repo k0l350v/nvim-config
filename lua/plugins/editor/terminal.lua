@@ -12,8 +12,8 @@ local M = {
 		{ '<C-w>k', '<cmd>wincmd k<cr>', desc = 'Go to the up window', mode = 't'},
 		{ '<C-w>l', '<cmd>wincmd l<cr>', desc = 'Go to the right window', mode = 't'},
 
-		{ '<C-w>d', '<cmd>close<cr>', desc = 'Close treminal window', mode = 't'},
-		{ '<C-w>q', '<cmd>close<cr>', desc = 'Close treminal window', mode = 't'},
+		{ '<C-w>d', '<cmd>:bd!<cr>', desc = 'Close terminal window', mode = 't'},
+		{ '<C-w>q', '<cmd>close<cr>', desc = 'Close terminal window', mode = 't'},
 	},
 }
 
