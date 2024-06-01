@@ -34,6 +34,24 @@ local M = {
 			end,
 		},
 	},
+	{
+		'Bekaboo/dropbar.nvim',
+		event = 'BufEnter',
+		dependencies = {
+			'nvim-telescope/telescope-fzf-native.nvim',
+			'nvim-tree/nvim-web-devicons',
+		},
+		keys = {
+			{
+				'<leader>sp',
+				function()
+					require("dropbar.api").pick()
+				end,
+				desc = 'Pick symbol from dropbar',
+			},
+		},
+		opts = {},
+	},
 }
 
 return M
