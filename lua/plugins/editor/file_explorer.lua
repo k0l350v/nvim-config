@@ -28,28 +28,6 @@ local M = {
 		opts = {},
 	},
 	{
-		'echasnovski/mini.files',
-		opts = {
-			windows = {
-				preview = true,
-				width_focus = 50,
-				width_preview = 50,
-			},
-			optioons = {
-				use_as_default_explorer = false,
-			},
-		},
-		keys = {
-			{
-				'<leader>fm',
-				function()
-					require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
-				end,
-				desc = 'Open File Manager (current file directory)',
-			},
-		},
-	},
-	{
 		'folke/edgy.nvim',
 		optional = true,
 		ft = 'neo-tree',
