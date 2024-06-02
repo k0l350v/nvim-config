@@ -23,7 +23,8 @@ function M.load_keymaps()
 	map({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>', { desc = 'Escape and clear hlsearch' })
 
 	map({ 'i', 'v', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save file' })
-	map('n', '<C-q>', '<cmd>qa<cr>', { desc = 'Quit all' })
+	map('n', '<C-q>', '<cmd>qa!<cr>', { desc = 'Quit all force' })
+	map('n', '<leader>q', '<cmd>qa<cr>', { desc = 'Quit all' })
 
 	map({ 'i', 'v', 'n', 't' }, '<A-Up>', '<cmd>resize +2<cr>', { desc = 'Increase window height' })
 	map({ 'i', 'v', 'n', 't' }, '<A-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease window height' })
