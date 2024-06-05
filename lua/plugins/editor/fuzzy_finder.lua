@@ -17,11 +17,14 @@ local M = {
 			{ '<leader>fr', '<cmd>Telescope resume<cr>', desc = 'Find resume' },
 			{ '<leader>fR', '<cmd>Telescope oldfiles<cr>', desc = 'Find recent files' },
 			{ '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
+			{ '<leader>fF', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>', desc = 'Find files (no ignore)' },
+			{ "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find git files" },
 			{ '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find buffers' },
 			{ '<leader>fw', '<cmd>Telescope grep_string<cr>', desc = 'Find word from cursor' },
 
 			{ '<leader>:', '<cmd>Telescope command_history<cr>', desc = 'Find in command history' },
 			{ '<leader>/', '<cmd>Telescope live_grep<cr>', desc = 'Find string (Grep)' },
+			{ '<leader>F', '<cmd>Telescope live_grep<cr>', desc = 'Find string (Grep no ignore)' },
 		},
 		opts = {
 			defaults = {
