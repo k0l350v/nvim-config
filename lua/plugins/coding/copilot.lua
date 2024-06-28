@@ -45,7 +45,7 @@ local M = {
 	},
 	{
 		'CopilotC-Nvim/CopilotChat.nvim',
-		version = 'canary',
+		branch = 'canary',
 		dependencies = {
 			{ 'zbirenbaum/copilot.lua' },
 			{ 'nvim-lua/plenary.nvim' },
