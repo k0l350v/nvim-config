@@ -163,7 +163,7 @@ local M = {
 		},
 		config = function()
 			local icons = {
-				Stopped = { ' ', 'DiagnosticWarn', 'DapStoppedLine' },
+				Stopped = { ' ', 'DiagnosticWarn', 'DapStoppedLine' },
 				Breakpoint = { '●', 'DapBreakpoint' }, -- DapBreakpoint from catppuccin
 				BreakpointCondition = { '●', 'DapBreakpointCondition' }, -- DapBreakpointCondition from catppuccin
 				BreakpointRejected = { ' ', 'DiagnosticError' },
