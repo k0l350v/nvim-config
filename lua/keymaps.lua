@@ -32,4 +32,21 @@ function M.load_keymaps()
 	map({ 'i', 'v', 'n', 't' }, '<A-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })
 end
 
+function M.Init()
+	local keymap_set = vim.keymap.set
+	---@diagnostic disable-next-line: duplicate-set-field
+	vim.keymap.set = function(mode, lhs, rhs, opts)
+		opts = opts or {}
+		if opts.dot_repeat then
+			opts.dot_repeat = nil
+			return keymap_set(mode, lhs, function(...)
+				rhs(...)
+				vim.fn['repeat#set'](vim.api.nvim_replace_termcodes(lhs, true, false, true))
+			end, opts)
+		end
+		return keymap_set(mode, lhs, rhs, opts)
+	end
+end
+
+M.Init()
 return M
