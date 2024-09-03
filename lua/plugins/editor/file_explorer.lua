@@ -25,7 +25,31 @@ local M = {
 				end
 			end
 		end,
-		opts = {},
+		opts = {
+			enable_diagnostics = false,
+			enable_git_status = false,
+			sources = { 'filesystem' },
+			filesystem = {
+				follow_current_file = { enabled = true },
+			},
+			default_component_configs = {
+				indent = {
+					with_expanders = true,
+					expander_collapsed = '',
+					expander_expanded = '',
+					indent_marker = '│',
+					last_indent_marker = '╰',
+				},
+				icon = {
+					folder_closed = ' ',
+					folder_open = ' ',
+					folder_empty = ' ',
+				},
+				modified = {
+					symbol = ' ',
+				},
+			}
+		},
 	},
 	{
 		'folke/edgy.nvim',
