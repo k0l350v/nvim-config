@@ -17,13 +17,22 @@ local M = {
 			},
 		},
 		init = function()
-			vim.g.neo_tree_remove_legacy_commands = 1
-			if vim.fn.argc() == 1 then
-				local stat = vim.loop.fs_stat(vim.fn.argv(0))
-				if stat and stat.type == 'directory' then
-					require('neo-tree')
-				end
-			end
+			vim.api.nvim_create_autocmd('BufEnter', {
+				group = vim.api.nvim_create_augroup('Neotree_start_directory', { clear = true }),
+				desc = 'Start Neo-tree with directory',
+				once = true,
+				callback = function()
+					if package.loaded['neo-tree'] then
+						return
+					else
+						---@diagnostic disable-next-line: param-type-mismatch
+						local stats = vim.uv.fs_stat(vim.fn.argv(0))
+						if stats and stats.type == 'directory' then
+							require('neo-tree')
+						end
+					end
+				end,
+			})
 		end,
 		opts = {
 			enable_diagnostics = false,
@@ -48,7 +57,7 @@ local M = {
 				modified = {
 					symbol = ' ',
 				},
-			}
+			},
 		},
 	},
 	{
