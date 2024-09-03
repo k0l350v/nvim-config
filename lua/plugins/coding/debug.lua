@@ -67,6 +67,7 @@ local M = {
 				function()
 					require('dap').continue()
 				end,
+				dot_repeat = true,
 				desc = 'Continue',
 			},
 			{
@@ -88,6 +89,7 @@ local M = {
 				function()
 					require('dap').step_into()
 				end,
+				dot_repeat = true,
 				desc = 'Step Into',
 			},
 			{
@@ -95,6 +97,7 @@ local M = {
 				function()
 					require('dap').down()
 				end,
+				dot_repeat = true,
 				desc = 'Down',
 			},
 			{
@@ -102,6 +105,7 @@ local M = {
 				function()
 					require('dap').up()
 				end,
+				dot_repeat = true,
 				desc = 'Up',
 			},
 			{
@@ -116,6 +120,7 @@ local M = {
 				function()
 					require('dap').step_out()
 				end,
+				dot_repeat = true,
 				desc = 'Step Out',
 			},
 			{
@@ -123,6 +128,7 @@ local M = {
 				function()
 					require('dap').step_over()
 				end,
+				dot_repeat = true,
 				desc = 'Step Over',
 			},
 			{
