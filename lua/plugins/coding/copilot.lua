@@ -4,44 +4,47 @@ local M = {
 		cmd = 'Copilot',
 		build = ':Copilot auth',
 		opts = {
-			suggestion = { enabled = false },
-			panel = { enabled = false },
-			filetypes = {
+			panel = {
+				enabled = true,
+				auto_refresh = true,
+				keymap = {
+					jump_prev = '<M-p>',
+					jump_next = '<M-n>',
+					accept = '<CR>',
+					refresh = 'gr',
+					open = '<M-CR>',
+				},
+				layout = {
+					position = 'right', -- | top | left | right
+					ratio = 0.4,
+				},
+			},
+			suggestion = {
+				enabled = true,
+				auto_trigger = true,
+				hide_during_completion = false,
+				debounce = 75,
+				keymap = {
+					accept = '<M-y>',
+					accept_word = '<M-l>',
+					accept_line = false,
+					next = '<M-n>',
+					prev = '<M-p>',
+					dismiss = '<M-e>',
+				},
+			},
+			filetypes = { -- enable all (maybe need disable something)
+				yaml = true,
 				markdown = true,
 				help = true,
+				gitcommit = true,
+				gitrebase = true,
+				hgcommit = true,
+				svn = true,
+				cvs = true,
+				["."] = true
 			},
 		},
-	},
-	{
-		'nvim-cmp',
-		dependencies = {
-			{
-				'zbirenbaum/copilot-cmp',
-				dependencies = 'copilot.lua',
-				opts = {},
-				config = function(_, opts)
-					local copilot_cmp = require('copilot_cmp')
-					copilot_cmp.setup(opts)
-
-					vim.api.nvim_create_autocmd('LspAttach', {
-						callback = function(args)
-							local client = vim.lsp.get_client_by_id(args.data.client_id)
-							if client.name == 'copilot' then
-								copilot_cmp._on_insert_enter({})
-							end
-						end,
-					})
-				end,
-			},
-		},
-		opts = function(_, opts)
-			table.insert(opts.sources, 1, {
-				name = 'copilot',
-				group_index = 1,
-				priority = 100,
-				max_item_count = 1,
-			})
-		end,
 	},
 	{
 		'CopilotC-Nvim/CopilotChat.nvim',
