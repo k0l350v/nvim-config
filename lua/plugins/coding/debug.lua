@@ -19,21 +19,26 @@ local M = {
 				mode = { 'n', 'v' },
 			},
 		},
-		opts = {},
-		config = function(_, opts)
-			local dap = require('dap')
-			local dapui = require('dapui')
-			dapui.setup(opts)
-			dap.listeners.after.event_initialized['dapui_config'] = function()
-				dapui.open({})
-			end
-			dap.listeners.before.event_terminated['dapui_config'] = function()
-				dapui.close({})
-			end
-			dap.listeners.before.event_exited['dapui_config'] = function()
-				dapui.close({})
-			end
-		end,
+		opts = {
+			layouts = {
+				{
+					elements = {
+						{ id = 'stacks', size = 0.7 },
+						{ id = 'breakpoints', size = 0.3 },
+					},
+					position = 'left',
+					size = 0.2,
+				},
+				{
+					elements = {
+						'scopes',
+						'console',
+					},
+					size = 0.3,
+					position = 'bottom',
+				},
+			},
+		},
 	},
 	{
 		'theHamsta/nvim-dap-virtual-text',
@@ -183,6 +188,18 @@ local M = {
 					'Dap' .. name,
 					{ text = sign[1], texthl = sign[2] or 'DiagnosticInfo', linehl = sign[3], numhl = sign[3] }
 				)
+			end
+
+			local dap = require('dap')
+			local dapui = require('dapui')
+			dap.listeners.after.event_initialized['dapui_config'] = function()
+				dapui.open({})
+			end
+			dap.listeners.before.event_terminated['dapui_config'] = function()
+				dapui.close({})
+			end
+			dap.listeners.before.event_exited['dapui_config'] = function()
+				dapui.close({})
 			end
 		end,
 	},
