@@ -203,6 +203,56 @@ local M = {
 			end
 		end,
 	},
+	{
+		'folke/edgy.nvim',
+		optional = true,
+		opts = function(_, opts)
+			opts.left = vim.list_extend(opts.left or {}, {
+				{
+					ft = 'dapui_stacks',
+					wo = { winbar = ' Stacks' },
+					size = { width = 0.15 },
+					open = function()
+						require('dapui').open()
+					end,
+				},
+				{
+					ft = 'dapui_breakpoints',
+					wo = { winbar = ' Breakpoints' },
+					size = { width = 0.15, height = 0.25 },
+					open = function()
+						require('dapui').open()
+					end,
+				},
+			})
+
+			opts.bottom = vim.list_extend(opts.bottom or {}, {
+				{
+					ft = 'dap-repl',
+					title = 'Debug REPL',
+					size = { height = 0.4 },
+					open = function()
+						require('dapui').open()
+					end,
+				},
+				{
+					ft = 'dapui_scopes',
+					size = { height = 0.4 },
+					open = function()
+						require('dapui').open()
+					end,
+				},
+				{
+					ft = 'dapui_console',
+					title = 'Debug Console',
+					size = { height = 0.4 },
+					open = function()
+						require('dapui').open()
+					end,
+				},
+			})
+		end,
+	},
 }
 
 return M
