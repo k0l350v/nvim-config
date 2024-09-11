@@ -106,6 +106,7 @@ local M = {
 					},
 				}
 			end
+
 			for _, lang in ipairs({ 'c', 'cpp' }) do
 				dap.configurations[lang] = {
 					{
@@ -125,6 +126,12 @@ local M = {
 						cwd = '${workspaceFolder}',
 					},
 				}
+			end
+
+			dap.listeners.after.event_initialized['no-cpp-except-brkpt'] = function(session)
+				if session.config.type == 'codelldb' then
+					require('dap.repl').execute('breakpoint name configure --disable cpp_exception')
+				end
 			end
 		end,
 	},
