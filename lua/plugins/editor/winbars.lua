@@ -1,14 +1,5 @@
 local M = {
 	{
-		'nvim-lualine/lualine.nvim',
-		event = 'VeryLazy',
-		opts = {
-			options = {
-				theme = 'catppuccin',
-			},
-		},
-	},
-	{
 		'b0o/incline.nvim',
 		event = 'BufEnter',
 		dependencies = {
@@ -45,12 +36,17 @@ local M = {
 			{
 				'<leader>sp',
 				function()
-					require("dropbar.api").pick()
+					require('dropbar.api').pick()
 				end,
 				desc = 'Pick symbol from dropbar',
 			},
 		},
 		opts = {},
+	},
+	{
+		'rebelot/heirline.nvim',
+		enabled = true,
+		event = 'UIEnter',
 	},
 }
 
