@@ -23,24 +23,37 @@ local M = {
 			'nvim-notify',
 		},
 		opts = {
-			lsp = { progress = { enabled = true }},
+			routes = {
+				{
+					opts = { skip = true },
+					filter = {
+						event = 'msg_show',
+						any = {
+							{ find = '%d+L, %d+B' },
+							{ find = '; after #%d+' },
+							{ find = '; before #%d+' },
+						},
+					},
+				},
+			},
+			lsp = { progress = { enabled = true } },
 			views = {
 				cmdline_popup = {
 					position = {
 						row = vim.o.lines / 2,
-						col = "50%",
+						col = '50%',
 					},
 				},
 				cmdline_popupmenu = {
 					position = {
 						row = vim.o.lines / 2 + 3,
-						col = "50%",
+						col = '50%',
 					},
 				},
 			},
 			presets = {
 				command_palette = true,
-			}
+			},
 		},
 	},
 	{
@@ -48,9 +61,9 @@ local M = {
 		opts = {
 			integrations = {
 				noice = true,
-			}
-		}
-	}
+			},
+		},
+	},
 }
 
 return M
