@@ -32,6 +32,7 @@ local M = {
 							{ find = '%d+L, %d+B' },
 							{ find = '; after #%d+' },
 							{ find = '; before #%d+' },
+							{ kind = '', max_height = 1, find = '^[/?].+' }, -- msg after pattern not found
 						},
 					},
 				},
