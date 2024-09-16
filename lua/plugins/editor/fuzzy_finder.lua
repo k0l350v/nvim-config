@@ -94,6 +94,19 @@ local M = {
 			},
 		},
 	},
+	{
+		'rcarriga/nvim-notify',
+		optional = true,
+		keys = {
+			{
+				'<leader>fn',
+				function()
+					require('telescope').extensions.notify.notify()
+				end,
+				desc = 'Find Notifications',
+			},
+		},
+	},
 }
 
 return M
