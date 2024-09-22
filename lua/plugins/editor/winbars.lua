@@ -43,11 +43,6 @@ local M = {
 		},
 		opts = {},
 	},
-	{
-		'rebelot/heirline.nvim',
-		enabled = true,
-		event = 'UIEnter',
-	},
 }
 
 return M
