@@ -44,7 +44,7 @@ local M = {
 			table.insert(opts.sources, 1, {
 				name = 'luasnip',
 				group_index = 1,
-				max_item_count = 3,
+				max_item_count = 2,
 			})
 		end,
 	},
