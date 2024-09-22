@@ -1,4 +1,6 @@
 vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
+
 local options = require('options')
 options.load_defaults()
 
