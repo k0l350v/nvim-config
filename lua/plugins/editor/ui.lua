@@ -54,6 +54,7 @@ local M = {
 			},
 			presets = {
 				command_palette = true,
+				lsp_doc_border = true,
 			},
 		},
 	},
