@@ -13,7 +13,6 @@ local M = {
 			'fish',
 			'gitignore',
 			'go',
-			'help',
 			'html',
 			'http',
 			'java',
