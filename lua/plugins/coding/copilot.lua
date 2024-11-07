@@ -1,6 +1,7 @@
 local M = {
 	{
 		'zbirenbaum/copilot.lua',
+		lazy = false,
 		cmd = 'Copilot',
 		build = ':Copilot auth',
 		opts = {
