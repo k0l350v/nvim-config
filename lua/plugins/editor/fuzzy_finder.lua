@@ -5,13 +5,36 @@ local M = {
 			picker = {},
 		},
 		keys = {
-			{ '<leader>fs', function() Snacks.picker.smart() end, desc = 'Find smart mode' },
+			{
+				'<leader>fs',
+				function()
+					Snacks.picker.smart()
+				end,
+				desc = 'Find smart mode',
+			},
 
-			{ '<leader>fR', function() Snacks.picker.resume() end, desc = 'Find resume' },
-			{ '<leader>fr', function() Snacks.picker.recent() end, desc = 'Find recent files' },
+			{
+				'<leader>fR',
+				function()
+					Snacks.picker.resume()
+				end,
+				desc = 'Find resume',
+			},
+			{
+				'<leader>fr',
+				function()
+					Snacks.picker.recent()
+				end,
+				desc = 'Find recent files',
+			},
 
-
-			{ '<leader>ff', function() Snacks.picker.files() end, desc = 'Find files' },
+			{
+				'<leader>ff',
+				function()
+					Snacks.picker.files()
+				end,
+				desc = 'Find files',
+			},
 			{
 				'<leader>fF',
 				function()
@@ -20,12 +43,36 @@ local M = {
 				desc = 'Find files (no ignore)',
 			},
 
-			{ '<leader>fw', function() Snacks.picker.grep_word() end, desc = 'Find word from cursor' },
+			{
+				'<leader>fw',
+				function()
+					Snacks.picker.grep_word()
+				end,
+				desc = 'Find word from cursor',
+			},
 
-			{ '<leader>/', function() Snacks.picker.grep() end, desc = 'Find string (Grep)' },
-			{ '<leader>F', function() Snacks.picker.grep({ hidden = true, ignored = true }) end, desc = 'Find string (Grep no ignore)' },
+			{
+				'<leader>/',
+				function()
+					Snacks.picker.grep()
+				end,
+				desc = 'Find string (Grep)',
+			},
+			{
+				'<leader>F',
+				function()
+					Snacks.picker.grep({ hidden = true, ignored = true })
+				end,
+				desc = 'Find string (Grep no ignore)',
+			},
 
-			{ '<leader>:', function() Snacks.picker.command_history() end, desc = 'Find in command history' },
+			{
+				'<leader>:',
+				function()
+					Snacks.picker.command_history({ layout = 'select'})
+				end,
+				desc = 'Find in command history',
+			},
 		},
 	},
 	{
