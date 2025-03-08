@@ -4,7 +4,7 @@ local M = {
 	dependencies = {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
-		'telescope.nvim',
+		'snacks.nvim',
 	},
 	opts = {},
 }
@@ -13,24 +13,20 @@ local default_keys = {
 	{
 		'gd',
 		function()
-			require('telescope.builtin').lsp_definitions({ reuse_win = true })
+			Snacks.picker.lsp_definitions()
 		end,
 		desc = 'Goto Definition',
 	},
-	{ 'gr', '<cmd>Telescope lsp_references<cr>', desc = 'References' },
+	{ 'gr', function() Snacks.picker.lsp_references() end, desc = 'References' },
 	{ 'gD', vim.lsp.buf.declaration, desc = 'Goto Declaration' },
 	{
 		'gI',
-		function()
-			require('telescope.builtin').lsp_implementations({ reuse_win = true })
-		end,
+		function() Snacks.picker.lsp_implementations() end,
 		desc = 'Goto Implementation',
 	},
 	{
 		'gy',
-		function()
-			require('telescope.builtin').lsp_type_definitions({ reuse_win = true })
-		end,
+		function() Snacks.picker.lsp_type_definitions() end,
 		desc = 'Goto T[y]pe Definition',
 	},
 	{ 'K', vim.lsp.buf.hover, desc = 'Hover' },

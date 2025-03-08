@@ -1,75 +1,60 @@
 local M = {
 	{
-		'nvim-telescope/telescope.nvim',
-		cmd = 'Telescope',
-		version = false,
-		dependencies = {
-			{ 'plenary.nvim' },
-			{
-				'nvim-telescope/telescope-fzf-native.nvim',
-				build = 'make',
-				config = function()
-					require('telescope').load_extension('fzf')
-				end,
-			},
+		'folke/snacks.nvim',
+		opts = {
+			picker = {},
 		},
 		keys = {
-			{ '<leader>fr', '<cmd>Telescope resume<cr>', desc = 'Find resume' },
-			{ '<leader>fR', '<cmd>Telescope oldfiles<cr>', desc = 'Find recent files' },
-			{ '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
-			{ '<leader>fF', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>', desc = 'Find files (no ignore)' },
-			{ "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find git files" },
-			{ '<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find buffers' },
-			{ '<leader>fw', '<cmd>Telescope grep_string<cr>', desc = 'Find word from cursor' },
+			{ '<leader>fs', function() Snacks.picker.smart() end, desc = 'Find smart mode' },
 
-			{ '<leader>:', '<cmd>Telescope command_history<cr>', desc = 'Find in command history' },
-			{ '<leader>/', '<cmd>Telescope live_grep<cr>', desc = 'Find string (Grep)' },
-			{ '<leader>F', '<cmd>Telescope live_grep<cr>', desc = 'Find string (Grep no ignore)' },
-		},
-		opts = {
-			defaults = {
-				layout_strategy = 'horizontal',
-				layout_config = { prompt_position = 'top' },
-				sorting_strategy = 'ascending',
-				winblend = 0,
-				prompt_prefix = ' ',
-				selection_caret = ' ',
-				mappings = {
-					i = {
-						['<C-q>'] = function(...)
-							return require('telescope.actions').close(...)
-						end,
-					},
-					n = {
-						['q'] = function(...)
-							return require('telescope.actions').close(...)
-						end,
-					},
-				},
+			{ '<leader>fR', function() Snacks.picker.resume() end, desc = 'Find resume' },
+			{ '<leader>fr', function() Snacks.picker.recent() end, desc = 'Find recent files' },
+
+
+			{ '<leader>ff', function() Snacks.picker.files() end, desc = 'Find files' },
+			{
+				'<leader>fF',
+				function()
+					Snacks.picker.files({ hidden = true, ignored = true })
+				end,
+				desc = 'Find files (no ignore)',
 			},
+
+			{ '<leader>fw', function() Snacks.picker.grep_word() end, desc = 'Find word from cursor' },
+
+			{ '<leader>/', function() Snacks.picker.grep() end, desc = 'Find string (Grep)' },
+			{ '<leader>F', function() Snacks.picker.grep({ hidden = true, ignored = true }) end, desc = 'Find string (Grep no ignore)' },
+
+			{ '<leader>:', function() Snacks.picker.command_history() end, desc = 'Find in command history' },
 		},
 	},
 	{
 		'mini.starter',
 		dependencies = {
-			{ 'telescope.nvim' },
+			{ 'folke/snacks.nvim' },
 		},
 		optional = true,
 		opts = function(_, opts)
-			local section_name = ' Telescope'
+			local section_name = ' Find'
 			local items = {
 				{
-					action = 'Telescope find_files',
+					action = function()
+						Snacks.picker.files()
+					end,
 					name = 'Find File',
 					section = section_name,
 				},
 				{
-					action = 'Telescope oldfiles',
+					action = function()
+						Snacks.picker.recent()
+					end,
 					name = 'Recent Files',
 					section = section_name,
 				},
 				{
-					action = 'Telescope live_grep',
+					action = function()
+						Snacks.picker.grep()
+					end,
 					name = 'Grep Text',
 					section = section_name,
 				},
@@ -78,34 +63,6 @@ local M = {
 			opts.items = opts.items or {}
 			vim.list_extend(opts.items, items)
 		end,
-	},
-	{
-		'nvim-telescope/telescope.nvim',
-		dependencies = {
-			'folke/edgy.nvim',
-		},
-		optional = true,
-		opts = {
-			defaults = {
-				get_selection_window = function()
-					require('edgy').goto_main()
-					return 0
-				end,
-			},
-		},
-	},
-	{
-		'rcarriga/nvim-notify',
-		optional = true,
-		keys = {
-			{
-				'<leader>fn',
-				function()
-					require('telescope').extensions.notify.notify()
-				end,
-				desc = 'Find Notifications',
-			},
-		},
 	},
 }
 

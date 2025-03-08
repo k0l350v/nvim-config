@@ -1,30 +1,27 @@
 local M = {
 	{
-		'ahmedkhalf/project.nvim',
-		dependencies = {
-			{ 'telescope.nvim' },
-		},
-		opts = {
-			manual_mode = true,
-			patterns = { '.git', 'Makefile', 'CMakeList.txt', '.venv' },
-		},
-		config = function(_, opts)
-			require('project_nvim').setup(opts)
-			require('telescope').load_extension('projects')
-		end,
+		'folke/snacks.nvim',
 		keys = {
-			{ '<leader>fp', '<Cmd>Telescope projects<CR>', desc = 'Find Projects' },
+			{
+				'<leader>fp',
+				function()
+					Snacks.picker.projects()
+				end,
+				desc = 'Find Projects',
+			},
 		},
 	},
 	{
 		'mini.starter',
 		optional = true,
 		dependencies = {
-			{ 'project.nvim' },
+			{ 'snacks.nvim' },
 		},
 		opts = function(_, opts)
 			local item = {
-				action = 'Telescope projects',
+				action = function()
+					Snacks.picker.projects()
+				end,
 				name = 'Projects',
 				section = ' Workspace',
 			}

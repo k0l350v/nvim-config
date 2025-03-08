@@ -47,7 +47,6 @@ local M = {
 		'Civitasv/cmake-tools.nvim',
 		dependencies = {
 			{ 'overseer.nvim' },
-			{ 'nvim-telescope/telescope.nvim' },
 		},
 		cmd = {
 			'CMakeGenerate',
@@ -80,9 +79,6 @@ local M = {
 			{ '<leader>cst', '<cmd>CMakeSelectBuildTarget<cr>', desc = 'Cmake Select Build Target' },
 			{ '<leader>csT', '<cmd>CMakeSelectBuildType<cr>', desc = 'Cmake Select Build Type' },
 			{ '<leader>csl', '<cmd>CMakeSelectLaunchTarget<cr>', desc = 'Cmake Select Launch Target' },
-
-			{ '<leader>fcs', '<cmd>Telescope cmake_tools sources<cr>', desc = 'Find sources from cmake' },
-			{ '<leader>fcf', '<cmd>Telescope cmake_tools<cr>', desc = 'Find all files associated with cmake' },
 		},
 		opts = {
 			cmake_regenerate_on_save = false,

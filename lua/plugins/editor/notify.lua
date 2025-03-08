@@ -29,6 +29,18 @@ local M = {
 			},
 		},
 	},
+	{
+		'folke/snacks.nvim',
+		keys = {
+			{
+				'<leader>fn',
+				function()
+					Snacks.picker.notifications()
+				end,
+				desc = 'Notification History',
+			},
+		},
+	},
 }
 
 return M
