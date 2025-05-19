@@ -46,12 +46,10 @@ local M = {
 					cmd = {
 						'clangd',
 						'--background-index',
-						'--suggest-missing-includes',
 						'--clang-tidy',
 						'--header-insertion=iwyu',
 						'--completion-style=detailed',
-						'--cross-file-rename',
-						'--function-arg-placeholders',
+						'--function-arg-placeholders=true',
 					},
 					init_options = {
 						clangdFileStatus = true,
