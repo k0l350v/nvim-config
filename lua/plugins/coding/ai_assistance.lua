@@ -1,67 +1,71 @@
 local M = {
 	{
-		'yetone/avante.nvim',
-		build = ':AvanteBuild',
-		cmd = {
-			'AvanteAsk',
-			'AvanteBuild',
-			'AvanteEdit',
-			'AvanteRefresh',
-			'AvanteSwitchProvider',
-			'AvanteChat',
-			'AvanteToggle',
-			'AvanteClear',
-		},
+		'olimorris/codecompanion.nvim',
 		dependencies = {
-			'nvim-treesitter/nvim-treesitter',
-			'stevearc/dressing.nvim',
 			'nvim-lua/plenary.nvim',
-			--- The below dependencies are optional,
-			'nvim-tree/nvim-web-devicons',
+			'nvim-treesitter/nvim-treesitter',
 		},
+		cmd = {
+			'CodeCompanion',
+			'CodeCompanionChat',
+			'CodeCompanionActions',
+			'CodeCompanionAdd',
+		},
+		init = function()
+			vim.g.codecompanion_auto_tool_mode = true
+			vim.cmd([[cab cc CodeCompanion]])
+			vim.cmd([[cab ccc CodeCompanionChat]])
+		end,
 		keys = {
-			{
-				'<leader>at',
-				function()
-					require('avante.api').toggle()
-				end,
-				desc = 'AI assistance toggle',
-				mode = { 'n', 'v' },
-			},
-			{
-				'<leader>aa',
-				function()
-					require('avante.api').ask()
-				end,
-				desc = 'AI assistance ask',
-				mode = { 'n', 'v' },
-			},
-			{
-				'<leader>ar',
-				function()
-					require('avante.api').refresh()
-				end,
-				desc = 'AI assistance refresh',
-			},
-			{
-				'<leader>ae',
-				function()
-					require('avante.api').edit()
-				end,
-				desc = 'AI assistance edit',
-				mode = 'v',
-			},
+			{ '<leader>ae', ':CodeCompanionChat Add<cr>', mode = { 'v' }, desc = 'Code Companion Add' },
+			{ '<leader>aa', ':CodeCompanionActions<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Actions' },
+			{ '<leader>ac', ':CodeCompanionChat<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Chat' },
+			{ '<leader>ai', ':CodeCompanion<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Inline Prompt' },
 		},
 		opts = {
-			hints = { enabled = false },
+			opts = {
+				language = 'Russian',
+			},
+			strategies = {
+				chat = {
+					roles = {
+						user = '',
+						llm = function(adapter)
+							return ' ' .. adapter.formatted_name
+						end,
+					},
+					tools = {
+						opts = {
+							auto_submit_errors = true,
+							auto_submit_success = true,
+						},
+					},
+				},
+			},
+			adapters = {
+				copilot = function()
+					return require('codecompanion.adapters').extend('copilot', {
+						schema = { model = { default = 'claude-3.7-sonnet' } },
+					})
+				end,
+				copilot_inline = function()
+					return require('codecompanion.adapters').extend('copilot', {
+						schema = { model = { default = 'claude-3.7-sonnet' } },
+					})
+				end,
+			},
+			display = {
+				diff = { enabled = false },
+				chat = {
+					show_header_separator = false,
+					show_settings = true,
+				},
+				action_palette = { provider = 'default' },
+			},
 		},
-	},
-	{
-		'MeanderingProgrammer/render-markdown.nvim',
-		opts = {
-			file_types = { 'markdown', 'Avante' },
-		},
-		ft = { 'markdown', 'Avante' },
+		config = function(_, opts)
+			require('codecompanion').setup(opts)
+		end,
 	},
 }
 
