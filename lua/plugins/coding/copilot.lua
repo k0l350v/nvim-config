@@ -40,14 +40,6 @@ local M = {
 			},
 		},
 	},
-	{
-		'yetone/avante.nvim',
-		optional = true,
-		opts = {
-			provider = 'copilot',
-			auto_suggestions_provider = 'copilot',
-		},
-	},
 }
 
 return M
