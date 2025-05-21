@@ -17,7 +17,7 @@ local M = {
 			vim.cmd([[cab ccc CodeCompanionChat]])
 		end,
 		keys = {
-			{ '<leader>ae', ':CodeCompanionChat Add<cr>', mode = { 'v' }, desc = 'Code Companion Add' },
+			{ '<leader>aA', ':CodeCompanionChat Add<cr>', mode = { 'v' }, desc = 'Code Companion Add' },
 			{ '<leader>aa', ':CodeCompanionActions<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Actions' },
 			{ '<leader>ac', ':CodeCompanionChat<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Chat' },
 			{ '<leader>ai', ':CodeCompanion<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Inline Prompt' },
