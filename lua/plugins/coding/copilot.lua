@@ -34,7 +34,7 @@ local M = {
 					dismiss = '<M-e>',
 				},
 			},
-			filetypes = { -- enable all (maybe need disable something)
+			filetypes = {
 				['*'] = true,
 				['.'] = true,
 			},
