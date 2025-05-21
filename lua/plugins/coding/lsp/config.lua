@@ -85,8 +85,7 @@ function M.config(_, opts)
 	end
 
 	local mlsp = require('mason-lspconfig')
-	mlsp.setup({ ensure_installed = ensure_installed_servers })
-	mlsp.setup_handlers({ get_setup_handler(opts) })
+	mlsp.setup({ ensure_installed = ensure_installed_servers, handlers = { get_setup_handler(opts) }, })
 end
 
 return M
