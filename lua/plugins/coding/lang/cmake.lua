@@ -45,6 +45,7 @@ local M = {
 	},
 	{
 		'Civitasv/cmake-tools.nvim',
+		commit = 'f1f917b584127b673c25138233cebf1d61a19f35',
 		dependencies = {
 			{ 'overseer.nvim' },
 		},
