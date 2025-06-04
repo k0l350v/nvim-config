@@ -1,48 +1,65 @@
 local M = {
-	'hrsh7th/nvim-cmp',
-	version = false,
-	event = 'InsertEnter',
-	dependencies = {
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-buffer',
-		'hrsh7th/cmp-path',
-	},
-	opts = function()
-		local cmp = require('cmp')
-		local defaults = require('cmp.config.default')()
-		return {
+	{
+		'saghen/blink.cmp',
+		build = 'cargo build --release',
+		version = '*',
+		event = { 'InsertEnter' },
+		opts_extend = {
+			'sources.completion.enabled_providers',
+			'sources.compat',
+			'sources.default',
+		},
+		opts = {
+			sources = {
+				default = { 'lsp', 'path', 'snippets', 'buffer' },
+			},
+			appearance = {
+				use_nvim_cmp_as_default = false,
+				nerd_font_variant = 'mono',
+			},
+			cmdline = {
+				enabled = false,
+			},
 			completion = {
-				completeopt = 'menu,menuone,noinsert',
+				menu = {
+					auto_show = true,
+					border = 'rounded',
+					draw = {
+						treesitter = { 'lsp' },
+					},
+				},
+				accept = {
+					auto_brackets = { enabled = true },
+				},
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 100,
+					window = {
+						border = 'rounded',
+					},
+				},
+				ghost_text = {
+					enabled = false,
+				},
 			},
-			mapping = cmp.mapping.preset.insert({
-				['<C-f>'] = cmp.mapping.scroll_docs(4),
-				['<C-b>'] = cmp.mapping.scroll_docs(-4),
-			}),
-			sources = cmp.config.sources({
-				{ name = 'nvim_lsp', max_item_count = 5 },
-				{ name = 'path', max_item_count = 5 },
-			}, {
-				{ name = 'buffer', max_item_count = 8 },
-			}),
-			experimental = {
-				native_menu = false,
-				ghost_text = false,
-			},
-			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
-			sorting = defaults.sorting,
-			formatting = {
-				fields = { 'kind', 'abbr', 'menu' },
-				format = function(entry, item)
-					item.kind = require('icons').kind[item.kind]
-					item.menu = '(' .. entry.source.name .. ')'
-					return item
-				end,
-			},
-		}
-	end,
+			signature = { window = { border = 'single' } },
+		},
+	},
+	{
+		'saghen/blink.cmp',
+		opts = function(_, opts)
+			opts.appearance = opts.appearance or {}
+			opts.appearance.kind_icons =
+				vim.tbl_extend('force', opts.appearance.kind_icons or {}, require('icons').kind)
+		end,
+	},
+	{
+		'catppuccin',
+		optional = true,
+		opts = {
+			integrations = { blink_cmp = true },
+		},
+	},
 }
 
 return M

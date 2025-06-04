@@ -31,22 +31,13 @@ local M = {
 		},
 	},
 	{
-		'nvim-cmp',
-		dependencies = {
-			'saadparwaiz1/cmp_luasnip',
+		'saghen/blink.cmp',
+		optional = true,
+		opts = {
+			snippets = {
+				preset = 'luasnip',
+			},
 		},
-		opts = function(_, opts)
-			opts.snippet = {
-				expand = function(args)
-					require('luasnip').lsp_expand(args.body)
-				end,
-			}
-			table.insert(opts.sources, 1, {
-				name = 'luasnip',
-				group_index = 1,
-				max_item_count = 2,
-			})
-		end,
 	},
 	{
 		'rafamadriz/friendly-snippets',

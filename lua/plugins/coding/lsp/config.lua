@@ -47,9 +47,9 @@ local function attach_keymaps(keymaps, buffer)
 end
 
 local function get_server_capabilities()
-	local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-	if status_ok then
-		return cmp_nvim_lsp.default_capabilities()
+	local has_blink, blink = pcall(require, "blink.cmp")
+	if has_blink then
+		return blink.default_capabilities()
 	end
 
 	return vim.lsp.protocol.make_client_capabilities()
