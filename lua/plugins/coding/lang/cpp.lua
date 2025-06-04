@@ -27,10 +27,34 @@ local M = {
 	},
 	{
 		'p00f/clangd_extensions.nvim',
+		lazy = true,
 		config = function() end,
+		ft = {
+			'c',
+			'cpp',
+		},
 		opts = {
 			inlay_hints = {
 				inline = false,
+			},
+			ast = {
+				role_icons = {
+					type = '',
+					declaration = '',
+					expression = '',
+					specifier = '',
+					statement = '',
+					['template argument'] = '',
+				},
+				kind_icons = {
+					Compound = '',
+					Recovery = '',
+					TranslationUnit = '',
+					PackExpansion = '',
+					TemplateTypeParm = '',
+					TemplateTemplateParm = '',
+					TemplateParamObject = '',
+				},
 			},
 		},
 	},
@@ -71,13 +95,6 @@ local M = {
 				end,
 			},
 		},
-	},
-	{
-		'nvim-cmp',
-		dependencies = { 'p00f/clangd_extensions.nvim' },
-		opts = function(_, opts)
-			table.insert(opts.sorting.comparators, 1, require('clangd_extensions.cmp_scores'))
-		end,
 	},
 	{
 		'mfussenegger/nvim-dap',
