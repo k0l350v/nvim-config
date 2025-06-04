@@ -50,6 +50,9 @@ local M = {
 						'--header-insertion=iwyu',
 						'--completion-style=detailed',
 						'--function-arg-placeholders=true',
+						'--all-scopes-completion',
+						'--pch-storage=memory',
+						'--suggest-missing-includes',
 					},
 					init_options = {
 						clangdFileStatus = true,
