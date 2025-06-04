@@ -7,11 +7,11 @@ local M = {
 			{
 				'<leader>sr',
 				function()
-					require('inc_rename')
-					return ':IncRename ' .. vim.fn.expand('<cword>')
+					local inc_rename = require('inc_rename')
+					return ':' .. inc_rename.config.cmd_name .. ' ' .. vim.fn.expand('<cword>')
 				end,
 				expr = true,
-				desc = 'Symbol Rename',
+				desc = 'Rename (inc-rename.nvim)',
 			},
 		},
 	},
