@@ -67,7 +67,7 @@ local M = {
 		'neovim/nvim-lspconfig',
 		dependencies = { 'p00f/clangd_extensions.nvim' },
 		keys = {
-			{ '<leader>cR', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Switch Source/Header (C/C++)' },
+			{ '<leader>hs', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Source/Header Switch (C/C++)' },
 		},
 		opts = {
 			servers = {
