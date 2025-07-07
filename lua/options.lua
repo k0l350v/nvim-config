@@ -37,6 +37,7 @@ local default_options = {
 	ignorecase = true,
 	smartcase = true,
 	mouse = '',
+	autoread = true,
 
 	fillchars = {
 		foldopen = '',
