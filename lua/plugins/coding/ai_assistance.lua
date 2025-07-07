@@ -1,5 +1,19 @@
 local M = {
 	{
+		'coder/claudecode.nvim',
+		dependencies = { 'folke/snacks.nvim' },
+		config = true,
+		cmd = {
+			'ClaudeCode',
+		},
+		keys = {
+			{ '<leader>a', nil, desc = 'AI/Claude Code' },
+			{ '<leader>ac', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude' },
+			{ '<leader>ab', '<cmd>ClaudeCodeAdd %<cr>', desc = 'Add current buffer' },
+			{ '<leader>as', '<cmd>ClaudeCodeSend<cr>', mode = 'v', desc = 'Send to Claude' },
+		},
+	},
+	{
 		'olimorris/codecompanion.nvim',
 		dependencies = {
 			'nvim-lua/plenary.nvim',
@@ -17,10 +31,7 @@ local M = {
 			vim.cmd([[cab ccc CodeCompanionChat]])
 		end,
 		keys = {
-			{ '<leader>aA', ':CodeCompanionChat Add<cr>', mode = { 'v' }, desc = 'Code Companion Add' },
 			{ '<leader>aa', ':CodeCompanionActions<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Actions' },
-			{ '<leader>ac', ':CodeCompanionChat<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Chat' },
-			{ '<leader>ai', ':CodeCompanion<cr>', mode = { 'n', 'v' }, desc = 'Code Companion Inline Prompt' },
 		},
 		opts = {
 			opts = {
