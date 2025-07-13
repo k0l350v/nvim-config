@@ -1,6 +1,7 @@
 local M = {
 	{
 		'coder/claudecode.nvim',
+		commit = 'bebc36a217778e83b3f5b986c0c80fdbcf4cbdb8',
 		dependencies = { 'folke/snacks.nvim' },
 		config = true,
 		cmd = {
