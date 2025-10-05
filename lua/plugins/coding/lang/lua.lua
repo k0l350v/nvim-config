@@ -14,6 +14,7 @@ local M = {
 		},
 		opts = {
 			servers = {
+				stylua = { enabled = false },
 				lua_ls = {},
 			},
 		},
