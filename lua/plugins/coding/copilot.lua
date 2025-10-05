@@ -6,19 +6,7 @@ local M = {
 		build = ':Copilot auth',
 		opts = {
 			panel = {
-				enabled = true,
-				auto_refresh = true,
-				keymap = {
-					jump_prev = '<M-p>',
-					jump_next = '<M-n>',
-					accept = '<CR>',
-					refresh = 'gr',
-					open = '<M-CR>',
-				},
-				layout = {
-					position = 'right', -- | top | left | right
-					ratio = 0.4,
-				},
+				enabled = false,
 			},
 			suggestion = {
 				enabled = true,
