@@ -1,7 +1,6 @@
 local M = {
 	{
 		'coder/claudecode.nvim',
-		commit = 'bebc36a217778e83b3f5b986c0c80fdbcf4cbdb8',
 		dependencies = { 'folke/snacks.nvim' },
 		config = true,
 		cmd = {
@@ -12,6 +11,14 @@ local M = {
 			{ '<leader>ac', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude' },
 			{ '<leader>ab', '<cmd>ClaudeCodeAdd %<cr>', desc = 'Add current buffer' },
 			{ '<leader>as', '<cmd>ClaudeCodeSend<cr>', mode = 'v', desc = 'Send to Claude' },
+		},
+		opts = {
+			terminal = {
+				provider = 'external',
+				provider_opts = {
+					external_terminal_cmd = 'alacritty --working-directory ' .. vim.fn.getcwd() .. ' -e %s',
+				},
+			},
 		},
 	},
 	{
